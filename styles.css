@@ -1,22 +1,13 @@
 body {
   margin: 0;
-  padding: 0;  
 }
 
-nav div{
-    background-image: url("./asset/heroimage1.jpg");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 70vh;
-}
-
-section {
+section.row {
     padding: 1em;
+    z-index: 1;
 }
 
-section img {
+section.row img {
     width: 30%;
     min-width: 7em;
     height: auto;
@@ -25,15 +16,45 @@ section img {
 .row {
     display: flex;
     justify-content: space-around;
-    min-height: 200vh;
+    background-color: white;
 }
 
 .col {
     flex: 1;
-    max-width: 40%;
+    max-width: 35%;
 }
 
 p img {
     float: left;
     margin-right: 1em;
+}
+
+/* Parallax scroll effect */
+article {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 2px;
+}
+
+section {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.decor-image-1, .decor-image-2 {
+    position: relative;
+    transform: translateZ(-1px) scale(1.5) translateY(-5vh);
+    z-index: -1;
+} 
+
+.decor-image-1 {
+    min-height: 70vh;
+    background-image: url("./asset/heroimage1.jpg");
+}
+
+.decor-image-2 {
+    min-height: 100vh;
+    background-image: url("./asset/heroimage2.jpg");
 }
