@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-section.row {
-    padding: 1em;
-}
-
 .row {
     display: flex;
     flex-direction: row;
@@ -16,6 +12,11 @@ section.row {
     flex-direction: column;
 }
 
+section.row {
+    padding: 1em;
+}
+
+/* About section */
 .about {
     background-color: white;
     padding: 1em 0;
@@ -49,6 +50,44 @@ p img {
     margin: 0;
 }
 
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: baseline;
+    color: white;
+}
+
+nav a, nav li {
+    color: inherit;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li {
+    list-style: none;
+    margin: 0.5em;
+}
+
+nav .logo {
+    justify-self:baseline;
+}
+
+nav ol{
+    flex: 1;
+    justify-content: flex-end;
+}
+
+nav ol, nav .logo {
+    margin: 0 2rem;
+}
+
 /* Parallax scroll effect */
 article {
     height: 100vh;
@@ -77,4 +116,5 @@ section {
 .decor-image-2 {
     min-height: 100vh;
     background-image: url("./asset/heroimage2.jpg");
+    transform: translateZ(-1px) scale(1.5);
 }
