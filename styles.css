@@ -4,29 +4,49 @@ body {
 
 section.row {
     padding: 1em;
-    z-index: 1;
 }
 
-section.row img {
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    background-color: white;
+    padding: 1em 0;
+}
+
+.about .row {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about img {
     width: 30%;
     min-width: 7em;
     height: auto;
 }
 
-.row {
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-}
-
-.col {
-    flex: 1;
-    max-width: 35%;
-}
-
 p img {
     float: left;
     margin-right: 1em;
+}
+
+.about p, .about .row div {
+    max-width: 35%;
+    min-width: 20em;
+    width: 100%;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+
+.about h2 {
+    margin: 0;
 }
 
 /* Parallax scroll effect */
