@@ -17,17 +17,17 @@ section.row {
 }
 
 /* About section */
-.about {
+.content {
     background-color: white;
     padding: 1em 0;
 }
 
-.about .row {
+.content .row {
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.about img {
+.content img {
     width: 30%;
     min-width: 7em;
     height: auto;
@@ -38,7 +38,7 @@ p img {
     margin-right: 1em;
 }
 
-.about p, .about .row div {
+.content p, .content .row div {
     max-width: 35%;
     min-width: 20em;
     width: 100%;
@@ -46,8 +46,22 @@ p img {
     margin-right: 2.5em;
 }
 
-.about h2 {
+.content h2 {
     margin: 0;
+}
+
+.galery {
+    background-color: gray;
+}
+
+.contact {
+    background-color: black;
+    color: white;
+}
+
+.galery .row, .contact .row {
+    height: 30vh;
+    align-items: center;
 }
 
 /* Navigation */
@@ -57,7 +71,7 @@ nav {
     left: 0;
     width: 100vw;
     height: fit-content;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     align-items: baseline;
     color: white;
 }
@@ -102,19 +116,29 @@ section {
     background-size: cover;
 }
 
-.decor-image-1, .decor-image-2 {
+.decor-image-1, .decor-image-2, .decor-image-3, .decor-image-4 {
     position: relative;
-    transform: translateZ(-1px) scale(1.5) translateY(-5vh);
+    transform: scale(2) translateZ(-1px);
     z-index: -1;
 } 
 
 .decor-image-1 {
     min-height: 70vh;
+    top: 0;
     background-image: url("./asset/heroimage1.jpg");
 }
 
 .decor-image-2 {
-    min-height: 100vh;
+    min-height: 50vh;
     background-image: url("./asset/heroimage2.jpg");
-    transform: translateZ(-1px) scale(1.5);
+}
+
+.decor-image-3 {
+    min-height: 50vh;
+    background-image: url("./asset/heroimage3.jpg");
+}
+
+.decor-image-4 {
+    min-height: 50vh;
+    background-image: url("./asset/heroimage.JPG");
 }
