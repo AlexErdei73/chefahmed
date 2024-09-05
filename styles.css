@@ -64,7 +64,7 @@ section.row {
 	padding: 1em;
 }
 
-/* About section */
+/* Content section */
 .content {
 	background-color: white;
 	padding: 1em 0;
@@ -99,19 +99,66 @@ p img {
 	margin: 0;
 }
 
+/* Galery */
 .galery {
 	background-color: gray;
 }
 
-.contact {
-	background-color: black;
-	color: white;
+.galery .row {
+	min-height: 30vh;
+	align-items: center;
 }
 
-.galery .row,
+/* Contact */
+.contact {
+	background-color: black;
+	color: lightgray;
+	padding-bottom: 0;
+}
+
 .contact .row {
-	height: 30vh;
+	transform: translateZ(0) scale(1);
+	min-height: fit-content;
 	align-items: center;
+	gap: 1em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.contact img {
+	background-color: lightgrey;
+	min-width: 0;
+	width: 1.5em;
+	height: auto;
+}
+
+.contact .row div {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.contact a {
+	color: lightgray;
+}
+
+.content .row.last {
+	background: linear-gradient(black, white);
+	margin-bottom: -0.5em;
+	padding: 0.5em;
+}
+
+.content .row.last img {
+	transform: scaleX(2) translateY(0.5em);
+	background-color: transparent;
+}
+
+.content .row.last {
+	transition: transform ease-in 300;
+}
+
+.content .row.last a:hover {
+	transform: scale(1.5) translateY(-0.125em);
 }
 
 /* Navigation */
