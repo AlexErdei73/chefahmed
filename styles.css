@@ -73,6 +73,11 @@ section.row {
 .content .row {
 	flex-wrap: wrap;
 	justify-content: center;
+	min-height: 40vh;
+}
+
+.content .row.subtitle {
+	min-height: fit-content;
 }
 
 .content img {
