@@ -57,17 +57,67 @@ function goToImage(index) {
     imgContainerDiv.style = `transform: translateX(${-positionIndex * imageWidth}px);`;
 }
 
+const imgElements = imgContainerDiv.querySelectorAll("img");
+
+function removeClickable(index) {
+    for (let i = index; i < index + 3; i++) {
+        imgElements[i].tabIndex = -1;
+        imgElements[i].classList.remove("clickable");
+    }
+}
+
+function addClickable(index) {
+    for (let i = index; i < index + 3; i++) {
+        imgElements[i].tabIndex = 0;
+        imgElements[i].classList.add("clickable");
+    }
+}
+
+addClickable(index);
+goToImage(index);
+
 const btnBackward = document.querySelector(".galery .btn-container.backward button");
 const btnForward = document.querySelector(".galery .btn-container.forward button");
 
 btnBackward.addEventListener("click", () => {
+    removeClickable(index);
     index--;
     if (index < 0) index = maxIndex;
     goToImage(index);
+    addClickable(index);
 });
 
 btnForward.addEventListener("click", () => {
+    removeClickable(index);
     index++;
     if (index > maxIndex) index = 0;
     goToImage(index);
+    addClickable(index);
+});
+
+const dialogElement = document.querySelector("dialog");
+const dialogImg = dialogElement.querySelector(".picture");
+const closeBtn = dialogElement.querySelector("button");
+
+function handleClick(event) {
+    const src = event.target.src;
+    const alt = event.target.alt;
+    dialogImg.src = src;
+    dialogImg.alt = alt;
+    dialogElement.showModal();
+}
+
+imgElements.forEach((img) => {
+    img.addEventListener("click", handleClick);
+    img.addEventListener("keydown", (event) => {
+        if (event.key == "Enter") {
+            event.preventDefault();
+            console.log(event.key);
+            handleClick(event);
+        }
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    dialogElement.close();
 });
