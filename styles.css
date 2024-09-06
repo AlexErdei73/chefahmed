@@ -116,8 +116,7 @@ p img {
 	align-items: center;
 	flex-wrap: nowrap;
 	gap: 1em;
-	--x-value: calc(21 * 27vw);
-	transform: translateX(var(--x-value));
+	transition: transform ease-in-out 100ms;
 }
 
 .galery img {

@@ -46,3 +46,28 @@ function addImgElements() {
 
 generateFileNames();
 addImgElements();
+
+const maxIndex = imgNames.length - 3;
+let index = 0;
+
+function goToImage(index) {
+    const positionIndex = index - 21;
+    const vw = window.innerWidth / 100;
+    const imageWidth = 27*vw;
+    imgContainerDiv.style = `transform: translateX(${-positionIndex * imageWidth}px);`;
+}
+
+const btnBackward = document.querySelector(".galery .btn-container.backward button");
+const btnForward = document.querySelector(".galery .btn-container.forward button");
+
+btnBackward.addEventListener("click", () => {
+    index--;
+    if (index < 0) index = maxIndex;
+    goToImage(index);
+});
+
+btnForward.addEventListener("click", () => {
+    index++;
+    if (index > maxIndex) index = 0;
+    goToImage(index);
+});
