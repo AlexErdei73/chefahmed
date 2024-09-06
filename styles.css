@@ -106,13 +106,63 @@ p img {
 
 /* Galery */
 .galery {
+	position: relative;
 	background-color: gray;
+	--img-width: calc(27vw - 1em);
 }
 
 .galery .row {
-	min-height: 30vh;
+	min-height: fit-content;
 	align-items: center;
+	flex-wrap: nowrap;
+	gap: 1em;
+	--x-value: calc(21 * 27vw);
+	transform: translateX(var(--x-value));
 }
+
+.galery img {
+	display: block;
+	min-width: 0;
+	width: var(--img-width);
+	height: auto;
+	flex:none;
+}
+
+.galery .btn-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 9.5vw;
+	background-color: inherit;
+}
+
+.galery .btn-container.backward {
+	left: 0;
+}
+
+.galery .btn-container.forward {
+	right: 0;
+}
+
+.galery .btn-container button {
+	background: transparent;
+	border: none;
+}
+
+.galery .btn-container button:hover {
+	transform: scale(1.5);
+}
+
+.galery .btn-container img {
+	min-width: 0;
+	width: 1.5em;
+	height: 1.5em;
+	transform: scaleY(2);
+}
+
 
 /* Contact */
 .contact {
@@ -176,6 +226,7 @@ nav {
 	background-color: rgba(0, 0, 0, 0.7);
 	align-items: baseline;
 	color: white;
+	z-index: 1;
 }
 
 nav a,
