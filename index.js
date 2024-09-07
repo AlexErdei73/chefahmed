@@ -121,3 +121,13 @@ imgElements.forEach((img) => {
 closeBtn.addEventListener("click", () => {
     dialogElement.close();
 });
+
+let isNavOpen = false;
+const navButton = document.querySelector("nav button");
+const orderedList = document.querySelector("nav ol");
+
+navButton.addEventListener("click", () => {
+    isNavOpen = !isNavOpen;
+    if (isNavOpen) orderedList.classList.remove("close");
+        else orderedList.classList.add("close");
+})
