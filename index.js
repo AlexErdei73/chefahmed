@@ -50,14 +50,14 @@ addImgElements();
 const maxIndex = imgNames.length - 3;
 let index = 0;
 
+const imgElements = imgContainerDiv.querySelectorAll("img");
+
 function goToImage(index) {
     const positionIndex = index - 21;
     const vw = window.innerWidth / 100;
     const imageWidth = 27*vw;
     imgContainerDiv.style = `transform: translateX(${-positionIndex * imageWidth}px);`;
 }
-
-const imgElements = imgContainerDiv.querySelectorAll("img");
 
 function removeClickable(index) {
     for (let i = index; i < index + 3; i++) {
@@ -130,4 +130,18 @@ navButton.addEventListener("click", () => {
     isNavOpen = !isNavOpen;
     if (isNavOpen) orderedList.classList.remove("close");
         else orderedList.classList.add("close");
-})
+});
+
+let debounce;
+window.addEventListener("resize", () => {
+    imgElements.forEach(img => {
+        if (!img.classList.contains("hidden")) img.classList.add("hidden");
+    });
+
+    if (!debounce) debounce = setTimeout(() => { 
+        goToImage(index);
+        imgElements.forEach(img => img.classList.remove("hidden"));
+        clearTimeout(debounce);
+        debounce = null;
+    }, 300);
+});

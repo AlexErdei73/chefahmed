@@ -120,7 +120,7 @@ p img {
 	align-items: center;
 	flex-wrap: nowrap;
 	gap: 1em;
-	transition: transform ease-in-out 100ms;
+	transition: all ease-in-out 100ms;
 }
 
 .galery img {
@@ -129,7 +129,7 @@ p img {
 	width: var(--img-width);
 	height: auto;
 	flex:none;
-	transition: transform ease-in-out 100ms;
+	transition: all ease-in-out 100ms;
 }
 
 .galery .btn-container {
@@ -203,10 +203,17 @@ dialog button img {
 dialog img.picture {
 	max-width: 100%;
 	max-height: calc(100vh - 4em);
+	opacity: 1;
+	/*transition: opacity ease-in-out 300ms;*/
 }
 
 .clickable:focus-visible {
 	border: 2px solid orangered;
+}
+
+.hidden {
+	opacity: 0;
+	visibility: hidden;
 }
 
 /* Contact */
