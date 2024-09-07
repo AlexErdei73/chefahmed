@@ -174,6 +174,12 @@ p img {
 	transform: scale(1.05);
 }
 
+.galery h2 {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
 ::backdrop {
 	background-color: black;
 	opacity: 0.75;
