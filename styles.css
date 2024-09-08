@@ -315,9 +315,9 @@ nav li::before {
 	background-color: rgba(0, 0, 0, 0.7);
 	position: absolute;
 	bottom: 0;
-	left: -2%;
+	left: -4%;
 	height: 0.05em;
-	width: 2%;
+	width: 4%;
 	z-index: 3;
 }
 
@@ -325,9 +325,9 @@ nav li::after {
 	content: "";
 	position: absolute;
 	bottom: 0;
-	left: -2%;
+	left: -4%;
 	height: 0.05em;
-	width: 2%;
+	width: 4%;
 	max-width: 100%;
 	background-color: white;
 	transform-origin: left;
@@ -337,7 +337,7 @@ nav li::after {
 }
 
 nav li:hover::after {
-	transform: scaleX(50);
+	transform: scaleX(25);
 }
 
 nav a {
@@ -411,6 +411,7 @@ nav img {
 		padding: 0.5em 0.5em 0.5em 1em;
 		margin: 0;
 		border: 0.25px solid black;
+		width: fit-content;
 	}
 	.close {
 		display: none;
