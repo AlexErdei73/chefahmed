@@ -111,7 +111,7 @@ p img {
 /* Galery */
 .galery {
 	position: relative;
-	background-image: linear-gradient(30deg, gray,black);
+	background-image: linear-gradient(30deg, gray, black);
 	--img-width: calc(27vw - 1em);
 }
 
@@ -128,7 +128,7 @@ p img {
 	min-width: 0;
 	width: var(--img-width);
 	height: auto;
-	flex:none;
+	flex: none;
 	transition: all ease-in-out 100ms;
 }
 
@@ -183,8 +183,8 @@ p img {
 ::backdrop {
 	background-color: black;
 	opacity: 0.75;
-  }
-  
+}
+
 dialog {
 	position: relative;
 	padding: 2em;
@@ -291,6 +291,37 @@ nav {
 nav a,
 nav li {
 	color: inherit;
+	position: relative;
+}
+
+nav li::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	bottom: 0;
+	left: -2%;
+	height: 0.05em;
+	width: 2%;
+	z-index: 3;
+}
+
+nav li::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: -2%;
+	height: 0.05em;
+	width: 2%;
+	max-width: 100%;
+	background-color: white;
+	transform-origin: left;
+	transform: scaleX(1);
+	transition: transform linear 300ms;
+	z-index: 2;
+}
+
+nav li:hover::after {
+	transform: scaleX(50);
 }
 
 nav a {
