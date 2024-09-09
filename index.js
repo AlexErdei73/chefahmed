@@ -1,47 +1,47 @@
 const imgNames = ["ahmed.png"];
 
 const nameInfoObjs = [
-    {
-        name: "carving",
-        maxIndex: 7
-    },
-    {
-        name: "dish",
-        maxIndex: 27
-    },
-    {
-        name: "team",
-        maxIndex: 10
-    },
-]
+	{
+		name: "carving",
+		maxIndex: 7,
+	},
+	{
+		name: "dish",
+		maxIndex: 27,
+	},
+	{
+		name: "team",
+		maxIndex: 10,
+	},
+];
 
 function generateFileNames() {
-    for (let obj of nameInfoObjs) {
-        const {name, maxIndex} = obj;
-        let fileName = "";
-        for (let i = 1; i <= maxIndex; i++) {
-            fileName = name;
-            if (i < 10) fileName += "0";
-            fileName += `${i}.jpg`;
-            imgNames.push(fileName);
-        }
-    }
+	for (let obj of nameInfoObjs) {
+		const { name, maxIndex } = obj;
+		let fileName = "";
+		for (let i = 1; i <= maxIndex; i++) {
+			fileName = name;
+			if (i < 10) fileName += "0";
+			fileName += `${i}.jpg`;
+			imgNames.push(fileName);
+		}
+	}
 }
 
 function createImgElement(fileName) {
-    const imgElement = document.createElement('img');
-    imgElement.setAttribute("src", `./asset/Galery/${fileName}`);
-    imgElement.setAttribute("alt", fileName);
-    return imgElement;
+	const imgElement = document.createElement("img");
+	imgElement.setAttribute("src", `./asset/Galery/${fileName}`);
+	imgElement.setAttribute("alt", fileName);
+	return imgElement;
 }
 
 const imgContainerDiv = document.querySelector("#galery div.row");
 
 function addImgElements() {
-    imgNames.forEach((fileName) => {
-        const imgElement = createImgElement(fileName);
-        imgContainerDiv.appendChild(imgElement);
-    })
+	imgNames.forEach((fileName) => {
+		const imgElement = createImgElement(fileName);
+		imgContainerDiv.appendChild(imgElement);
+	});
 }
 
 generateFileNames();
@@ -51,48 +51,55 @@ const maxIndex = imgNames.length - 3;
 let index = 0;
 
 const imgElements = imgContainerDiv.querySelectorAll("img");
+const galerySection = document.querySelector(".galery");
 
 function goToImage(index) {
-    const positionIndex = index - 21;
-    const vw = window.innerWidth / 100;
-    const imageWidth = 27*vw;
-    imgContainerDiv.style = `transform: translateX(${-positionIndex * imageWidth}px);`;
+	const positionIndex = index - 21;
+	const onePercent = galerySection.clientWidth / 100;
+	const imageWidth = onePercent * 27;
+	imgContainerDiv.style = `transform: translateX(${
+		-positionIndex * imageWidth
+	}px);`;
 }
 
 function removeClickable(index) {
-    for (let i = index; i < index + 3; i++) {
-        imgElements[i].tabIndex = -1;
-        imgElements[i].classList.remove("clickable");
-    }
+	for (let i = index; i < index + 3; i++) {
+		imgElements[i].tabIndex = -1;
+		imgElements[i].classList.remove("clickable");
+	}
 }
 
 function addClickable(index) {
-    for (let i = index; i < index + 3; i++) {
-        imgElements[i].tabIndex = 0;
-        imgElements[i].classList.add("clickable");
-    }
+	for (let i = index; i < index + 3; i++) {
+		imgElements[i].tabIndex = 0;
+		imgElements[i].classList.add("clickable");
+	}
 }
 
 addClickable(index);
 goToImage(index);
 
-const btnBackward = document.querySelector(".galery .btn-container.backward button");
-const btnForward = document.querySelector(".galery .btn-container.forward button");
+const btnBackward = document.querySelector(
+	".galery .btn-container.backward button"
+);
+const btnForward = document.querySelector(
+	".galery .btn-container.forward button"
+);
 
 btnBackward.addEventListener("click", () => {
-    removeClickable(index);
-    index--;
-    if (index < 0) index = maxIndex;
-    goToImage(index);
-    addClickable(index);
+	removeClickable(index);
+	index--;
+	if (index < 0) index = maxIndex;
+	goToImage(index);
+	addClickable(index);
 });
 
 btnForward.addEventListener("click", () => {
-    removeClickable(index);
-    index++;
-    if (index > maxIndex) index = 0;
-    goToImage(index);
-    addClickable(index);
+	removeClickable(index);
+	index++;
+	if (index > maxIndex) index = 0;
+	goToImage(index);
+	addClickable(index);
 });
 
 const dialogElement = document.querySelector("dialog");
@@ -100,26 +107,26 @@ const dialogImg = dialogElement.querySelector(".picture");
 const closeBtn = dialogElement.querySelector("button");
 
 function handleClick(event) {
-    const src = event.target.src;
-    const alt = event.target.alt;
-    dialogImg.src = src;
-    dialogImg.alt = alt;
-    dialogElement.showModal();
+	const src = event.target.src;
+	const alt = event.target.alt;
+	dialogImg.src = src;
+	dialogImg.alt = alt;
+	dialogElement.showModal();
 }
 
 imgElements.forEach((img) => {
-    img.addEventListener("click", handleClick);
-    img.addEventListener("keydown", (event) => {
-        if (event.key == "Enter") {
-            event.preventDefault();
-            console.log(event.key);
-            handleClick(event);
-        }
-    });
+	img.addEventListener("click", handleClick);
+	img.addEventListener("keydown", (event) => {
+		if (event.key == "Enter") {
+			event.preventDefault();
+			console.log(event.key);
+			handleClick(event);
+		}
+	});
 });
 
 closeBtn.addEventListener("click", () => {
-    dialogElement.close();
+	dialogElement.close();
 });
 
 let isNavOpen = false;
@@ -127,21 +134,22 @@ const navButton = document.querySelector("nav button");
 const orderedList = document.querySelector("nav ol");
 
 navButton.addEventListener("click", () => {
-    isNavOpen = !isNavOpen;
-    if (isNavOpen) orderedList.classList.remove("close");
-        else orderedList.classList.add("close");
+	isNavOpen = !isNavOpen;
+	if (isNavOpen) orderedList.classList.remove("close");
+	else orderedList.classList.add("close");
 });
 
 let debounce;
 window.addEventListener("resize", () => {
-    imgElements.forEach(img => {
-        if (!img.classList.contains("hidden")) img.classList.add("hidden");
-    });
+	imgElements.forEach((img) => {
+		if (!img.classList.contains("hidden")) img.classList.add("hidden");
+	});
 
-    if (!debounce) debounce = setTimeout(() => { 
-        goToImage(index);
-        imgElements.forEach(img => img.classList.remove("hidden"));
-        clearTimeout(debounce);
-        debounce = null;
-    }, 300);
+	if (!debounce)
+		debounce = setTimeout(() => {
+			goToImage(index);
+			imgElements.forEach((img) => img.classList.remove("hidden"));
+			clearTimeout(debounce);
+			debounce = null;
+		}, 300);
 });
