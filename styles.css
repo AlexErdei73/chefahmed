@@ -45,9 +45,20 @@
 	src: url(./asset/fonts/Great_Vibes/GreatVibes-Regular.ttf);
 }
 
+@font-face {
+	font-family: Rosario;
+	src: url(./asset/fonts/Rosario/Rosario-VariableFont_wght.ttf);
+}
+
+@font-face {
+	font-family: Rosario;
+	src: url(./asset/fonts/Rosario/Rosario-Italic-VariableFont_wght.ttf);
+	font-style: italic;
+}
+
 body {
 	margin: 0;
-	font-family: Roboto, "Courier New", Courier, monospace;
+	font-family: Rosario, "Courier New", Courier, monospace;
 	overflow: hidden;
 	background-color: black;
 	display: flex;
