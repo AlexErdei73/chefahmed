@@ -191,7 +191,7 @@ p img {
 
 dialog {
 	position: relative;
-	padding: 2em;
+	padding: 0.75em;
 	border: none;
 	max-width: 100vw;
 	max-height: 90vh;
@@ -203,16 +203,17 @@ dialog button {
 	right: 0;
 	background: transparent;
 	border: none;
+	padding: 0;
 }
 
 dialog button img {
-	width: 2em;
-	height: 2em;
+	width: 1em;
+	height: 1em;
 }
 
 dialog img.picture {
 	max-width: 100%;
-	max-height: calc(90vh - 4em);
+	max-height: calc(90vh - 2em);
 }
 
 .clickable:focus-visible {
@@ -359,7 +360,7 @@ nav ol {
 
 nav ol,
 nav .logo {
-	margin: 0 2rem;
+	margin: 0 2em;
 }
 
 h1 {
@@ -383,7 +384,7 @@ nav img {
 	display: flex;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 42em) {
 	nav button {
 		display: flex;
 	}
@@ -414,7 +415,7 @@ article {
 	max-height: 46.75em;
 	overflow-x: hidden;
 	overflow-y: auto;
-	perspective: 0.125rem;
+	perspective: 0.125em;
 }
 
 section {
@@ -428,15 +429,15 @@ section {
 .decor-image-3,
 .decor-image-4 {
 	position: relative;
-	transform: scale(2) translateZ(-0.0625rem);
+	transform: scale(2.2) translateZ(-0.0625em);
 	z-index: -1;
-	height: 20em;
+	height: 25em;
 	max-height: 50vh;
 }
 
 .decor-image-1 {
-	height: 30em;
-	max-height: 90vh;
+	height: 35em;
+	max-height: 70vh;
 	background-image: url("./asset/heroimage1.jpg");
 }
 
@@ -450,4 +451,47 @@ section {
 
 .decor-image-4 {
 	background-image: url("./asset/heroimage.JPG");
+}
+
+/* Responsiveness on 300px X 300px screensize*/
+
+@media (max-width: 30em) {
+	p,
+	a,
+	button,
+	nav,
+	nav .logo,
+	div,
+	.row,
+	.col,
+	dialog {
+		font-size: clamp(0.25rem, 3.4vw, 4rem);
+	}
+	h1 {
+		font-size: clamp(0.45rem, 5vw, 6rem);
+	}
+	h2 {
+		font-size: clamp(0.4rem, 4vw, 5rem);
+	}
+	nav {
+		height: 2.3em;
+	}
+	nav ol {
+		top: 2.3em;
+	}
+	nav ol li {
+		padding: 0.3em 0.3em 0.3em 0.6em;
+	}
+	nav .logo {
+		margin: 0 1em;
+	}
+	.galery .btn-container button {
+		transform: scaleX(0.5);
+	}
+	.galery .btn-container button:hover {
+		transform: scaleX(0.5) scale(1.5);
+	}
+	.content {
+		padding: 0.5em 0;
+	}
 }
