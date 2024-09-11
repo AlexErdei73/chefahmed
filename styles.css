@@ -412,7 +412,7 @@ nav img {
 article {
 	max-width: 92.75em;
 	height: 100vh;
-	max-height: 46.75em;
+	/*max-height: 46.75em;*/
 	overflow-x: hidden;
 	overflow-y: auto;
 	perspective: 0.125em;
@@ -493,5 +493,13 @@ section {
 	}
 	.content {
 		padding: 0.5em 0;
+	}
+}
+
+/* Fix parallax effect for high screens */
+
+@media (min-height: 46.75em) {
+	article {
+		perspective: 0.2em;
 	}
 }
