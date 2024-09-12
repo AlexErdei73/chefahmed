@@ -56,6 +56,13 @@
 	font-style: italic;
 }
 
+:root {
+	--bckgr-col: #fffdf7;
+	--main-col: #1e2e46;
+	--link-col: rgb(0, 47, 102);
+	--link-col-hover: rgb(0, 4, 255);
+}
+
 body {
 	margin: 0;
 	font-family: Rosario, "Courier New", Courier, monospace;
@@ -85,9 +92,21 @@ section.row {
 	padding: 1em;
 }
 
+section {
+	background-color: var(--bckgr-col);
+	color: var(--main-col);
+}
+
+a {
+	color: var(--link-col);
+}
+
+a:hover {
+	color: var(--link-col-hover);
+}
+
 /* Content section */
 .content {
-	background-color: white;
 	padding: 1em 0;
 }
 
@@ -127,7 +146,6 @@ p img {
 /* Galery */
 .galery {
 	position: relative;
-	background-image: linear-gradient(30deg, gray, black);
 	--img-width: calc(27% - 1em);
 }
 
@@ -169,7 +187,7 @@ p img {
 }
 
 .galery .btn-container button {
-	background: white;
+	background-color: var(--bckgr-col);
 	transform: scaleY(2);
 	border: none;
 	transition: transform ease-in-out 100ms;
@@ -193,16 +211,14 @@ p img {
 .galery h2 {
 	width: 100%;
 	text-align: center;
-	color: white;
 }
 
 ::backdrop {
-	background-color: black;
-	opacity: 0.75;
+	background-color: var(--main-col);
+	opacity: 0.9;
 }
 
 dialog {
-	position: relative;
 	padding: 0.75em;
 	border: none;
 	max-width: 100vw;
@@ -213,14 +229,13 @@ dialog button {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background: transparent;
+	background: var(--bckgr-col);
 	border: none;
-	padding: 0;
 }
 
 dialog button img {
-	width: 1em;
-	height: 1em;
+	width: 2em;
+	height: 2em;
 }
 
 dialog img.picture {
@@ -239,9 +254,11 @@ dialog img.picture {
 
 /* Contact */
 .contact {
-	background-color: black;
-	color: lightgray;
 	padding-bottom: 0;
+}
+
+.contact hr {
+	width: 85%;
 }
 
 .contact .row {
@@ -254,7 +271,6 @@ dialog img.picture {
 }
 
 .contact img {
-	background-color: lightgrey;
 	min-width: 0;
 	width: 1.5em;
 	height: auto;
@@ -266,10 +282,6 @@ dialog img.picture {
 	gap: 1em;
 }
 
-.contact a {
-	color: lightgray;
-}
-
 .contact .row .col div {
 	transition: all ease-in-out 300ms;
 }
@@ -278,16 +290,11 @@ dialog img.picture {
 	transform: scale(1.1);
 }
 
-.contact .row .col div:hover a {
-	color: white;
-}
-
 .contact .row .col div:hover img {
 	background-color: white;
 }
 
 .contact .row.last {
-	background: linear-gradient(black, white);
 	margin-bottom: -0.5em;
 	padding: 0.5em;
 }
@@ -312,10 +319,10 @@ nav {
 	left: 0;
 	width: 100%;
 	height: fit-content;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(30, 46, 71, 0.85);
 	justify-content: space-between;
 	align-items: baseline;
-	color: white;
+	color: var(--bckgr-col);
 	z-index: 2;
 }
 
