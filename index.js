@@ -35,12 +35,15 @@ function createImgElement(fileName) {
 	return imgElement;
 }
 
-const imgContainerDiv = document.querySelector("#galery div.row");
+const imagesDiv = document.querySelector("#galery div.row");
 
 function addImgElements() {
 	imgNames.forEach((fileName) => {
 		const imgElement = createImgElement(fileName);
+		const imgContainerDiv = document.createElement("div");
+		imgContainerDiv.classList.add("img-container");
 		imgContainerDiv.appendChild(imgElement);
+		imagesDiv.appendChild(imgContainerDiv);
 	});
 }
 
@@ -50,33 +53,43 @@ addImgElements();
 const maxIndex = imgNames.length - 3;
 let index = 0;
 
-const imgElements = imgContainerDiv.querySelectorAll("img");
+const imgElements = imagesDiv.querySelectorAll("img");
+const imgContainers = imagesDiv.querySelectorAll(".img-container");
 const galerySection = document.querySelector(".galery");
 
+function sizeImgContainers() {
+	const onePercent = galerySection.offsetWidth / 100;
+	const style = window.getComputedStyle(galerySection, null).getPropertyValue('font-size');
+	const fontSize = parseFloat(style);
+	imgContainers.forEach((container) => {
+		container.style = `width: ${27 * onePercent - fontSize}px; height: ${27 * onePercent - fontSize}px;`;
+	});
+}
+
 function goToImage(index) {
-	const positionIndex = index - 21;
-	const onePercent = galerySection.clientWidth / 100;
-	const imageWidth = onePercent * 27;
-	imgContainerDiv.style = `transform: translateX(${
-		-positionIndex * imageWidth
+	const positionIndex = index;
+	const imageWidth = imagesDiv.offsetWidth / imgNames.length;
+	imagesDiv.style = `transform: translateX(${
+		-(positionIndex - 0.4) * imageWidth
 	}px);`;
 }
 
 function removeClickable(index) {
 	for (let i = index; i < index + 3; i++) {
-		imgElements[i].tabIndex = -1;
-		imgElements[i].classList.remove("clickable");
+		imgContainers[i].tabIndex = -1;
+		imgContainers[i].classList.remove("clickable");
 	}
 }
 
 function addClickable(index) {
 	for (let i = index; i < index + 3; i++) {
-		imgElements[i].tabIndex = 0;
-		imgElements[i].classList.add("clickable");
+		imgContainers[i].tabIndex = 0;
+		imgContainers[i].classList.add("clickable");
 	}
 }
 
 addClickable(index);
+sizeImgContainers();
 goToImage(index);
 
 const btnBackward = document.querySelector(
@@ -119,7 +132,6 @@ imgElements.forEach((img) => {
 	img.addEventListener("keydown", (event) => {
 		if (event.key == "Enter") {
 			event.preventDefault();
-			console.log(event.key);
 			handleClick(event);
 		}
 	});
@@ -147,6 +159,7 @@ window.addEventListener("resize", () => {
 
 	if (!debounce)
 		debounce = setTimeout(() => {
+			sizeImgContainers();
 			goToImage(index);
 			imgElements.forEach((img) => img.classList.remove("hidden"));
 			clearTimeout(debounce);
