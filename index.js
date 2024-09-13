@@ -62,16 +62,15 @@ function sizeImgContainers() {
 	const style = window.getComputedStyle(galerySection, null).getPropertyValue('font-size');
 	const fontSize = parseFloat(style);
 	imgContainers.forEach((container) => {
-		container.style = `width: ${27 * onePercent - fontSize}px; height: ${27 * onePercent - fontSize}px;`;
+		container.style = `width: ${25 * onePercent - fontSize}px; height: ${27 * onePercent - fontSize}px;`;
 	});
 }
 
 function goToImage(index) {
 	const positionIndex = index;
-	const imageWidth = imagesDiv.offsetWidth / imgNames.length;
-	imagesDiv.style = `transform: translateX(${
-		-(positionIndex - 0.3) * imageWidth
-	}px);`;
+	const imageWidth = imagesDiv.clientWidth / imgNames.length;
+	const position = -(positionIndex - 0.35) * imageWidth;
+	imagesDiv.style = `transform: translateX(${position}px);`;
 }
 
 function removeClickable(index) {
@@ -90,7 +89,8 @@ function addClickable(index) {
 
 addClickable(index);
 sizeImgContainers();
-goToImage(index);
+//Browser needs time to apply the styles, hence we run the goToImage asynchronously
+setTimeout(() => goToImage(index), 0);
 
 const btnBackward = document.querySelector(
 	".galery .btn-container.backward button"
@@ -157,12 +157,14 @@ window.addEventListener("resize", () => {
 		if (!img.classList.contains("hidden")) img.classList.add("hidden");
 	});
 
-	if (!debounce)
+	if (!debounce) {
+		// browser needs time to apply the styles, hence we do it before the setTimeout callback
+		sizeImgContainers();
 		debounce = setTimeout(() => {
-			sizeImgContainers();
 			goToImage(index);
 			imgElements.forEach((img) => img.classList.remove("hidden"));
 			clearTimeout(debounce);
 			debounce = null;
 		}, 300);
+	}
 });
