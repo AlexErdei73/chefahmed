@@ -144,7 +144,7 @@ p img {
 }
 
 /* Galery */
-.galery {
+.galery-slider {
 	position: relative;
 }
 
@@ -493,7 +493,8 @@ section {
 	div,
 	.row,
 	.col,
-	dialog {
+	dialog,
+	.galery {
 		font-size: clamp(0.25rem, 3.4vw, 4rem);
 	}
 	h1 {
