@@ -32,6 +32,7 @@ function createImgElement(fileName) {
 	const imgElement = document.createElement("img");
 	imgElement.setAttribute("src", `./asset/Galery/${fileName}`);
 	imgElement.setAttribute("alt", fileName);
+	imgElement.setAttribute("loading", "lazy");
 	return imgElement;
 }
 
