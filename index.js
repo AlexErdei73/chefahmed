@@ -70,7 +70,7 @@ function goToImage(index) {
 	const positionIndex = index;
 	const imageWidth = imagesDiv.offsetWidth / imgNames.length;
 	imagesDiv.style = `transform: translateX(${
-		-(positionIndex - 0.4) * imageWidth
+		-(positionIndex - 0.3) * imageWidth
 	}px);`;
 }
 
