@@ -1,17 +1,20 @@
 @font-face {
 	font-family: GreatVibes;
 	src: url(./asset/fonts/Great_Vibes/GreatVibes-Regular.ttf);
+	font-display: optional;
 }
 
 @font-face {
 	font-family: Rosario;
 	src: url(./asset/fonts/Rosario/Rosario-VariableFont_wght.ttf);
+	font-display: optional;
 }
 
 @font-face {
 	font-family: Rosario;
 	src: url(./asset/fonts/Rosario/Rosario-Italic-VariableFont_wght.ttf);
 	font-style: italic;
+	font-display: optional;
 }
 
 :root {
