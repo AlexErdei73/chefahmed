@@ -176,7 +176,7 @@ p img {
 	transform: scaleY(1.5);
 }
 
-.galery .row .img-container:hover {
+.galery .row .img-container.clickable:hover {
 	transform: scale(1.05);
 }
 

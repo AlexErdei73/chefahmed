@@ -91,7 +91,7 @@ function addClickable(index) {
 addClickable(index);
 sizeImgContainers();
 //Browser needs time to apply the styles, hence we run the goToImage asynchronously
-setTimeout(() => goToImage(index), 0);
+setTimeout(() => goToImage(index), 300);
 
 const btnBackward = document.querySelector(
 	".galery .btn-container.backward button"
