@@ -427,19 +427,19 @@ section {
 .decor-image-1 {
 	height: 35em;
 	max-height: 70vh;
-	background-image: url("./asset/heroimage1.jpg");
+	background-image: url("./asset/heroimage1.webp");
 }
 
 .decor-image-2 {
-	background-image: url("./asset/heroimage2.jpg");
+	background-image: url("./asset/heroimage2.webp");
 }
 
 .decor-image-3 {
-	background-image: url("./asset/heroimage3.jpg");
+	background-image: url("./asset/heroimage3.webp");
 }
 
 .decor-image-4 {
-	background-image: url("./asset/heroimage.JPG");
+	background-image: url("./asset/heroimage.webp");
 }
 
 /* Responsiveness on 300px X 300px screensize*/

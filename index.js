@@ -1,4 +1,4 @@
-const imgNames = ["ahmed.png"];
+const imgNames = ["ahmed.webp"];
 
 const nameInfoObjs = [
 	{
@@ -22,7 +22,7 @@ function generateFileNames() {
 		for (let i = 1; i <= maxIndex; i++) {
 			fileName = name;
 			if (i < 10) fileName += "0";
-			fileName += `${i}.jpg`;
+			fileName += `${i}.webp`;
 			imgNames.push(fileName);
 		}
 	}
